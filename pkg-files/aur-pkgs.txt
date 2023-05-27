@@ -1,0 +1,13 @@
+--END OF MINIMAL INSTALL--
+ttf-meslo-nerd-font-powerlevel10k
+envycontrol
+xkb-switch
+rmtrash
+pywal-git
+uget-integrator-firefox
+ctpv-git
+papirus-folders-git
+dragon-drop
+ocr-fonts
+python-pdf2image
+mpd-mpris
