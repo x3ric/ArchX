@@ -31,8 +31,10 @@ sed -i "s%GRUB_CMDLINE_LINUX_DEFAULT=\"%GRUB_CMDLINE_LINUX_DEFAULT=\"cryptdevice
 fi
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="[^"]*/& os-prober/' /etc/default/grub
 sed -i '/^#GRUB_DISABLE_OS_PROBER=/s/^#//' /etc/default/grub
+sed -i 's/^\(GRUB_DEFAULT=\).*/\1saved/' /etc/default/grub
+sed -i 's/^\#\(GRUB_SAVEDEFAULT=\).*/\1true/' /etc/default/grub
 sed -i 's/quiet//g' /etc/default/grub
-sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/' /etc/default/grub
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/' /etc/default/grub
 echo -e "Installing PolyDark Grub theme..."
 THEME_DIR="/boot/grub/themes"
 THEME_NAME="PolyDark"

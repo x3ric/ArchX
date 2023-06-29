@@ -14,11 +14,6 @@ thefuck
 zsh-theme-powerlevel10k
 zsh-syntax-highlighting
 zsh-autosuggestions
-autojump
-lsd
-fzf
-ripgrep
-network-manager-applet
 bluez
 bluez-libs
 bluez-utils
@@ -29,3 +24,6 @@ fuse3
 fuseiso
 unrar
 unzip
+lsd
+fzf
+ripgrep

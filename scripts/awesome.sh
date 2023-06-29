@@ -7,10 +7,12 @@ _________________________/
 
 "
     if ! ping -c 1 google.com &> /dev/null; then echo "No internet connection. Running command..."; sudo ./wifi-menu.sh; else echo "Internet connection available. Skipping command."; fi
-    read -p 'Install picom? y[n]: ' picom
+    read -p 'Install picomx? y[n]: ' picom
     if [[ $picom == "y" ]]; then
         mkdir -p picomx && cd picomx && curl -s -O https://raw.githubusercontent.com/X3ric/picom/next/PKGBUILD && makepkg -si --noconfirm && cd .. && rm -rf picomx
     fi
+    echo "ctpvx install"
+    mkdir -p ctpvx && cd ctpvx && (curl -O https://raw.githubusercontent.com/X3ric/ctpv/master/PKGBUILD && makepkg -si) && cd .. && rm -rf ctpvx
     sudo ./awesome.sh
 else
 echo -nE "
@@ -45,12 +47,9 @@ _________________________/
     if grep -E "NVIDIA|GeForce" <<< ${gpu_type}; then
     envycontrol -s nvidia --force-comp --coolbits 32
     fi
-    
-    # Install and enable ufw for a simple firewall
-    pacman -S --noconfirm ufw
-    systemctl enable --now ufw
-    ufw default deny incoming
-    ufw default allow outgoing
+
+    #dunst daemon disable because awesome already launch/set
+    systemctl mask dunst.service &>/dev/null
     
     # Cleanup unnecessary packages
     pacman -Rns --noconfirm $(pacman -Qdtq)
@@ -58,18 +57,39 @@ _________________________/
     paccache -r
     
     sysctl --system
-
-    papirus-folders -C black --theme ePapirus-Dark &>/dev/null
-
+    
+    cd /home/$choice/.cache
     git clone https://github.com/X3ric/usr
-    chmod -R +x /home/$choice/usr/
-    rm -R /home/$choice/usr/README.md
-    rm -R /home/$choice/usr/LICENSE
-    rm -Rf /home/$choice/usr/.git/
-    cp -r -a /home/$choice/usr/. /home/$choice/
-    rm -Rf /home/$choice/usr
+    chmod -R +x /home/$choice/.cache/usr/
+    cp -r -a /home/$choice/.cache/usr/. /home/$choice/
+    rm -R /home/$choice/README.md
+    rm -R /home/$choice/LICENSE
+    rm -Rf /home/$choice/.git/
+    cd /home/$choice/
+    mkdir -p /home/$choice/.icons/default/
+    ln -s /home/$choice/.local/share/icons/cz-Hickson-Black/cursors/ /home/$choice/.icons/default/cursors
 
-    rm /usr/share/applications/nvim.desktop /usr/share/applications/btop.desktop /usr/share/applications/uxterm.desktop /usr/share/applications/xterm.desktop /usr/share/applications/btop.desktop /usr/share/applications/uxterm.desktop /usr/share/applications/xterm.desktop /usr/share/applications/lstopo.desktop /usr/share/applications/cmake-gui.desktop /usr/share/applications/electron.desktop /usr/share/applications/lf.desktop /usr/share/applications/panel-preferences.desktop /usr/share/applications/rofi.desktop /usr/share/applications/rofi-theme-selector.desktop /usr/share/applications/xfce4-about.desktop
+    papirus-folders -C black --theme Papirus &>/dev/null
+
+    files_to_hide=(
+        "/usr/share/applications/nvim.desktop"
+        "/usr/share/applications/btop.desktop"
+        "/usr/share/applications/uxterm.desktop"
+        "/usr/share/applications/xterm.desktop"
+        "/usr/share/applications/lstopo.desktop"
+        "/usr/share/applications/cmake-gui.desktop"
+        "/usr/share/applications/lf.desktop"
+        "/usr/share/applications/panel-preferences.desktop"
+        "/usr/share/applications/rofi.desktop"
+        "/usr/share/applications/rofi-theme-selector.desktop"
+        "/usr/share/applications/xfce4-about.desktop"
+        "/usr/share/applications/htop.desktop"
+    )
+    for file in "${files_to_hide[@]}"; do
+        if [ -f "$file" ]; then
+            echo "NoDisplay=true" | sudo tee -a "$file" &>/dev/null
+        fi
+    done
 
     chown -R $choice:$choice /home/$choice
     chmod 755 /home/$choice

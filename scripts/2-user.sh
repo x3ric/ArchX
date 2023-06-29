@@ -45,10 +45,9 @@ if [[ ! $AUR_HELPER == none ]]; then
 fi
 export PATH=$PATH:~/.local/bin
 if [[ $INSTALL_TYPE == "FULL" ]]; then
-    curl -s https://raw.githubusercontent.com/X3ric/usr/main/.local/share/bin/wifi-menu -o wifi-menu.sh
+    curl -s https://raw.githubusercontent.com/X3ric/usr/main/.local/share/bin/wifi-menu -o ~/wifi-menu.sh
     sudo chmod +x ./wifi-menu.sh
     cp -r ~/ArchX/scripts/${DESKTOP_ENV}.sh ~/
-    cp -r ~/ArchX/scripts/wifi-menu.sh ~/
     cp -r ~/ArchX/configs/.bash_profile ~/
 fi
 echo -ne "
