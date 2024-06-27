@@ -1,0 +1,107 @@
+mesa
+xorg
+xorg-apps
+xorg-drivers
+xorg-xinit
+xterm
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+gvfs
+gvfs-smb
+gvfs-mtp
+samba
+nss-mdns
+awesome
+--END OF MINIMAL INSTALL--
+# Shell
+dash
+# Utils
+network-manager-applet
+polkit-gnome
+python-pywal
+unclutter
+blueman
+arandr
+dust
+gpm
+# Cli Tools
+ncdu
+xdotool
+xclip
+cmake
+github-cli
+yt-dlp
+lf
+jq
+atool
+chafa
+bat
+ffmpeg
+ffmpegthumbnailer
+brightnessctl
+poppler
+aria2
+tmux
+btop
+git-delta
+glow
+highlight
+# Apps Utils
+gucharmap
+xfce4-clipman-plugin
+dconf-editor
+slop
+gpick
+scrot
+# Archive
+engrampa
+# Apps
+kitty
+feh
+rofi
+rofi-emoji
+firefox
+f3d
+# Neovim
+neovim
+npm
+nodejs
+# Mpv
+mpd
+mpc
+mpv
+ncmpcpp
+# Thunar
+thunar
+thunar-volman
+thunar-archive-plugin
+thunar-media-tags-plugin
+tumbler
+# Qt
+qt5ct
+kvantum
+# Fonts
+noto-fonts-emoji
+noto-fonts-cjk
+ttf-dejavu
+ttf-fira-code
+terminus-font
+# Python deps 
+python
+python-gobject
+python-dbus
+python-mutagen
+python-mpd2
+python-pytesseract
+tesseract-data-eng
+# Globalmenu deps
+gtk3
+python-attrs
+appmenu-gtk-module
+libdbusmenu-gtk2
+libdbusmenu-gtk3
+libdbusmenu-qt5
+bamf

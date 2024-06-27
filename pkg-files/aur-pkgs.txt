@@ -1,0 +1,13 @@
+--END OF MINIMAL INSTALL--
+ttf-meslo-nerd-font-powerlevel10k
+zsh-theme-powerlevel10k-bin-git
+zenity-gtk3
+autojump
+dashbinsh
+envycontrol
+rmtrash
+pinfo
+dragon-drop
+python-fuzzysearch
+libinput-gestures
+python-bs4
