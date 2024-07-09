@@ -77,7 +77,7 @@ _________________________/
     rm -R /home/$choice/.bash_profile
     rm -R /home/$choice/.bash_logout
     rm -R /home/$choice/.bash_history
-    echo "export ZDOTDIR=~/.config/zsh" | sudo tee /etc/zsh/zshenv
+    echo "export ZDOTDIR=~/.local/zsh" | sudo tee /etc/zsh/zshenv
     rm -rf ~/.zshenv
     sudo touch /home/$choice/.cache/ttywal
     sudo touch /etc/vconsole.conf

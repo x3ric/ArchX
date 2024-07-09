@@ -29,18 +29,13 @@ dust
 gpm
 # Cli Tools
 ncdu
-xdotool
-xclip
 cmake
 github-cli
-yt-dlp
 lf
 jq
 atool
 chafa
 bat
-ffmpeg
-ffmpegthumbnailer
 brightnessctl
 poppler
 aria2
@@ -53,9 +48,7 @@ highlight
 gucharmap
 xfce4-clipman-plugin
 dconf-editor
-slop
 gpick
-scrot
 # Archive
 engrampa
 # Apps
@@ -79,6 +72,7 @@ thunar
 thunar-volman
 thunar-archive-plugin
 thunar-media-tags-plugin
+ffmpegthumbnailer
 tumbler
 # Qt
 qt5ct
@@ -95,8 +89,6 @@ python-gobject
 python-dbus
 python-mutagen
 python-mpd2
-python-pytesseract
-tesseract-data-eng
 # Globalmenu deps
 gtk3
 python-attrs
