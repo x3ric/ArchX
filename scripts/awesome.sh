@@ -49,7 +49,7 @@ _________________________/
     sudo systemctl enable gpm.service
     
     #xset r rate 660 25 #Default one 
-    xset r rate 560 25 #Input speed
+    xset r rate 160 60 #Input speed
     
     # Cleanup unnecessary packages
     pacman -Rns --noconfirm $(pacman -Qdtq)
