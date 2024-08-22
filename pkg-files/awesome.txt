@@ -78,6 +78,7 @@ tumbler
 # Qt
 qt5ct
 kvantum
+kvantum-qt5
 # Fonts
 noto-fonts-emoji
 noto-fonts-cjk
