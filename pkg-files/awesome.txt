@@ -17,6 +17,7 @@ samba
 nss-mdns
 awesome
 --END OF MINIMAL INSTALL--
+xclip
 # Shell
 dash
 # Utils
