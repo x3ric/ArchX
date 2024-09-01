@@ -18,6 +18,7 @@ nss-mdns
 awesome
 --END OF MINIMAL INSTALL--
 xclip
+playerctl
 # Shell
 dash
 # Utils
