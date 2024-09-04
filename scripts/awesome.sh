@@ -20,7 +20,7 @@ _________________________/
 
 "
     #sed -i "\$s|^exec.*|exec $wm|" "/etc/X11/xinit/xinitrc" # replace $wm with the wm you want
-    echo "Cange password for root to login with su root"
+    echo "Change password for root to login with su root"
     passwd root
     choice=$(logname)
 
