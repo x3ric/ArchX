@@ -43,7 +43,7 @@ _________________________/
     
     gpu_type=$(lspci)
     if grep -E "NVIDIA|GeForce" <<< ${gpu_type}; then
-    envycontrol -s nvidia --force-comp --coolbits 32
+    envycontrol -s nvidia --force-comp
     fi
 
     sudo systemctl enable gpm.service

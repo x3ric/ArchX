@@ -39,7 +39,7 @@ else
     gpu_type=$(lspci)
     if grep -E "NVIDIA|GeForce" <<< ${gpu_type}; then
     yay --noconfirm --needed envycontrol
-    envycontrol -s nvidia --force-comp --coolbits 32
+    envycontrol -s nvidia --force-comp
     fi
 
     #xset r rate 660 25 #Default one 
