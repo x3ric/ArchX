@@ -104,32 +104,32 @@ elif grep -E "Intel Corporation UHD" <<< ${gpu_type}; then
     pacman -S --needed --noconfirm libva-intel-driver libvdpau-va-gl lib32-vulkan-intel vulkan-intel libva-intel-driver libva-utils lib32-mesa
 fi
 if ! source $HOME/ArchX/configs/setup.conf; then
-	while true
-	do 
-		read -p "Please enter username:" username
-		if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]]
-		then 
-			break
-		fi 
-		echo "Incorrect username."
-	done 
-echo "username=${username,,}" >> ${HOME}/ArchX/configs/setup.conf
-    read -p "Please enter password:" password
-echo "password=${password,,}" >> ${HOME}/ArchX/configs/setup.conf
-    while true
-	do 
-		read -p "Please name your machine:" name_of_machine
-		if [[ "${name_of_machine,,}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]]
-		then 
-			break 
-		fi 
-		read -p "Hostname doesn't seem correct. Do you still want to save it? (y/n)" force 
-		if [[ "${force,,}" = "y" ]]
-		then 
-			break 
-		fi 
-	done 
-    echo "NAME_OF_MACHINE=${name_of_machine,,}" >> ${HOME}/ArchX/configs/setup.conf
+   while true
+   do 
+	read -p "Please enter username:" username
+	if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]]
+	then 
+		break
+	fi 
+	echo "Incorrect username."
+   done 
+   echo "username=${username,,}" >> ${HOME}/ArchX/configs/setup.conf
+   read -p "Please enter password:" password
+   echo "password=${password,,}" >> ${HOME}/ArchX/configs/setup.conf
+   while true
+   do 
+	read -p "Please name your machine:" name_of_machine
+	if [[ "${name_of_machine,,}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]]
+	then 
+		break 
+	fi 
+	read -p "Hostname doesn't seem correct. Do you still want to save it? (y/n)" force 
+	if [[ "${force,,}" = "y" ]]
+	then 
+		break 
+	fi 
+   done 
+   echo "NAME_OF_MACHINE=${name_of_machine,,}" >> ${HOME}/ArchX/configs/setup.conf
 fi
 echo -ne "
 _____________________________________________
