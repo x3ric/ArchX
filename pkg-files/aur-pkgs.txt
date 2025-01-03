@@ -1,5 +1,6 @@
 --END OF MINIMAL INSTALL--
 ttf-meslo-nerd-font-powerlevel10k
+ttf-jetbrains-mono-nerd
 zsh-theme-powerlevel10k-bin-git
 autojump
 dashbinsh
