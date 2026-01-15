@@ -2,6 +2,6 @@
 pacman -Sy
 pacman-key --init
 pacman -S --needed --noconfirm git
-git clone https://git.X3ric.com/ArchX
+git clone https://github.com/x3ric/ArchX
 chmod -R +x ArchX
 cd ArchX && ./archx.sh
