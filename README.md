@@ -16,7 +16,7 @@ loadkeys {Layout} // example it,en,es
 </details>
   
 <pre>
-curl -s https://raw.githubusercontent.com/X3ric/ArchX/master/install | bash
+curl -s https://raw.githubusercontent.com/x3ric/ArchX/refs/heads/main/install | bash
 </pre>
 
 <details>
