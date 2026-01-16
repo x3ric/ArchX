@@ -7,8 +7,8 @@ _________________________/
 
 "
     if ! ping -c 1 google.com &> /dev/null; then echo "No internet connection. Running command..." && sudo ./wifi-menu.sh; else echo "Internet connection available. Skipping command."; fi
-    echo "picomx install"
-    curl -s https://raw.githubusercontent.com/X3ric/picom/next/install | bash
+    #echo "picomx install"
+    #curl -s https://raw.githubusercontent.com/X3ric/picom/next/install | bash
     echo "ctpvx install"
     curl -s https://raw.githubusercontent.com/X3ric/ctpv/master/install | bash
     sudo ./awesome.sh
