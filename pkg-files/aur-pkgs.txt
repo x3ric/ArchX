@@ -1,7 +1,6 @@
 --END OF MINIMAL INSTALL--
-ttf-meslo-nerd-font-powerlevel10k
+ttf-meslo-nerd
 ttf-jetbrains-mono-nerd
-zsh-theme-powerlevel10k-bin-git
 autojump
 dashbinsh
 envycontrol
