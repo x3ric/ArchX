@@ -1,5 +1,9 @@
 <div align="center">
 
+# ArchX
+
+> Note: this is my personal installer, I recommend using the default Arch Linux installer.
+
 ### Installation
 
 Download [Arch.Iso](https://archlinux.org/download/) and create bootable USB and launch or go to [ArchX.iso](https://github.com/X3ric/ArchX/releases/tag/V0.1) instead to skip all steps.
