@@ -8,6 +8,7 @@ ntfs-3g
 python-pip
 neofetch
 os-prober
+man-pages
 --END OF MINIMAL INSTALL--
 zsh
 thefuck
