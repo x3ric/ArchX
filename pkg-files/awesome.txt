@@ -15,6 +15,7 @@ gvfs-smb
 gvfs-mtp
 samba
 nss-mdns
+dnsmasq
 awesome
 --END OF MINIMAL INSTALL--
 xclip
@@ -61,8 +62,6 @@ rofi
 rofi-emoji
 firefox
 f3d
-# Neovim
-neovim
 npm
 nodejs
 # Mpv
