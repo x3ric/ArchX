@@ -86,6 +86,8 @@ noto-fonts-cjk
 ttf-dejavu
 ttf-fira-code
 terminus-font
+ttf-nerd-fonts-symbols-common
+otf-firamono-nerd
 # Python deps 
 python
 python-gobject
