@@ -1,0 +1,15 @@
+# build output
+iso-build/archiso_releng/
+
+# logs
+*.log
+
+# caches
+__pycache__/
+*.py[cod]
+.cache/
+
+# editor/system junk
+.DS_Store
+*.swp
+*.swo

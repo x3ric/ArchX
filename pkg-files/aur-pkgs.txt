@@ -1,4 +1,13 @@
+# ArchX AUR packages.
+# Everything before --END OF MINIMAL INSTALL-- is installed for MINIMAL.
+
+# Hyprland helpers
+grimblast-git
+
+wlogout
 --END OF MINIMAL INSTALL--
+neofetch
+
 autojump
 dashbinsh
 envycontrol
@@ -8,7 +17,6 @@ dragon-drop
 python-fuzzysearch
 libinput-gestures
 python-bs4
-# Fonts
 ttf-meslo-nerd
 ttf-jetbrains-mono-nerd
 otf-sora

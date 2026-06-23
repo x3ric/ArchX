@@ -5,10 +5,19 @@ linux-headers
 usbutils
 xdg-user-dirs
 ntfs-3g
+exfatprogs
+python
 python-pip
-neofetch
 os-prober
 man-pages
+parted
+networkmanager
+iwd
+curl
+git
+rsync
+pacman-contrib
+pciutils
 --END OF MINIMAL INSTALL--
 zsh
 thefuck
@@ -18,7 +27,6 @@ bluez
 bluez-libs
 bluez-utils
 efibootmgr
-exfat-utils
 fuse2
 fuse3
 fuseiso

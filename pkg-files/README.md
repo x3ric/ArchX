@@ -1,13 +1,12 @@
-### Pkg-files Folder
+# Package profiles
 
-This directory contains various package-related lists:
+ArchX is Hyprland-only now.
 
-- [`aur-pkgs.txt`](aur-pkgs.txt): A list of AUR (Arch User Repository) packages, enabling the installation of community-driven software not available in official repositories.
+- `pacman-pkgs.txt` contains base packages shared by every install.
+- `hyprland.txt` contains the Wayland/Hyprland desktop profile.
+- `aur-pkgs.txt` contains optional AUR helpers used by the profile.
+- `server.txt` is kept for server installs that should skip desktop setup.
 
-- [`awesome.txt`](awesome.txt): A list of packages related to the "awesome" window manager, installable using pacman, Arch Linux's official package manager.
+Packages before `--END OF MINIMAL INSTALL--` are installed for `MINIMAL`; packages after it are installed only for `FULL`.
 
-- [`pacman-pkgs.txt`](pacman-pkgs.txt): A list of essential core pacman packages necessary for minimal installation, managed by Arch Linux's package manager.
-
-- [`server.txt`](server.txt): A list of packages required for setting up a server. The file remains empty as server installations aim to be minimal.
-
-`--END OF MINIMAL INSTALL--`: Indicates the end of the minimal installation section in the files. Packages listed below this point are part of the full installation.
+To create a custom desktop/profile later, add `<profile>.txt` here and add a matching firstboot script in `scripts/<profile>.sh`. The default supported profile is `hyprland`.

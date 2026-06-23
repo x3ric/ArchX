@@ -1,7 +1,66 @@
-#!/bin/env bash
-pacman -Sy
-pacman-key --init
-pacman -S --needed --noconfirm git
-git clone https://github.com/x3ric/ArchX
-chmod -R +x ArchX
-cd ArchX && ./archx.sh
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ARCHX_REPO="${ARCHX_REPO:-https://github.com/x3ric/ArchX}"
+ARCHX_REF="${ARCHX_REF:-main}"
+ARCHX_DIR="${ARCHX_DIR:-ArchX}"
+
+ok()   { printf '  [\033[32m✓\033[0m] %s\n' "$*"; }
+warn() { printf '  [\033[33m!\033[0m] %s\n' "$*"; }
+fail() { printf '  [\033[31m✗\033[0m] %s\n' "$*"; }
+has()  { command -v "$1" >/dev/null 2>&1; }
+online(){ ping -c1 -W2 archlinux.org >/dev/null 2>&1 || ping -c1 -W2 1.1.1.1 >/dev/null 2>&1; }
+
+as_root() {
+  if [[ ${EUID:-$(id -u)} -eq 0 ]]; then "$@"; elif has sudo; then sudo "$@"; else return 1; fi
+}
+
+wifi_menu() {
+  as_root rfkill unblock wifi >/dev/null 2>&1 || true
+  if has nmcli; then
+    as_root systemctl enable --now NetworkManager >/dev/null 2>&1 || true
+    nmcli radio wifi on >/dev/null 2>&1 || true
+    nmcli device wifi rescan >/dev/null 2>&1 || true
+    nmcli device wifi list || true
+    read -r -p 'SSID: ' ssid
+    [[ -n "$ssid" ]] || return 1
+    read -rs -p 'Password (empty for open): ' pass; printf '\n'
+    if [[ -n "$pass" ]]; then as_root nmcli device wifi connect "$ssid" password "$pass"; else as_root nmcli device wifi connect "$ssid"; fi
+  elif has iwctl; then
+    as_root systemctl start iwd >/dev/null 2>&1 || true
+    iwctl device list || true
+    read -r -p 'Device (example wlan0): ' dev
+    [[ -n "$dev" ]] || return 1
+    iwctl station "$dev" scan || true
+    iwctl station "$dev" get-networks || true
+    read -r -p 'SSID: ' ssid
+    [[ -n "$ssid" ]] || return 1
+    read -rs -p 'Password (empty for open): ' pass; printf '\n'
+    if [[ -n "$pass" ]]; then iwctl --passphrase "$pass" station "$dev" connect "$ssid"; else iwctl station "$dev" connect "$ssid"; fi
+  elif has wifi-menu; then
+    as_root wifi-menu
+  else
+    fail 'No Wi-Fi helper found. Use iwctl manually, then rerun the installer.'
+    return 1
+  fi
+}
+
+[[ ${EUID:-$(id -u)} -eq 0 ]] || { fail 'Run from the Arch ISO as root.'; exit 1; }
+[[ -e /etc/arch-release ]] || { fail 'This must run on the Arch ISO.'; exit 1; }
+
+if ! online; then
+  warn 'Network offline — opening Wi-Fi setup before any download'
+  wifi_menu || true
+fi
+online || { fail 'Still offline; cannot download ArchX.'; exit 1; }
+
+pacman-key --init >/dev/null 2>&1 || true
+pacman -Sy --noconfirm --needed archlinux-keyring git curl networkmanager iwd rfkill terminus-font
+setfont ter-v22b 2>/dev/null || true
+
+rm -rf "$ARCHX_DIR"
+git clone --depth 1 --branch "$ARCHX_REF" "$ARCHX_REPO" "$ARCHX_DIR"
+chmod -R u+rwX,go+rX "$ARCHX_DIR"
+find "$ARCHX_DIR" -type f \( -name '*.sh' -o -name install -o -name archx.sh \) -exec chmod +x {} +
+cd "$ARCHX_DIR"
+exec ./archx.sh
