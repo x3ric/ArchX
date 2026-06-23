@@ -1,6 +1,4 @@
 --END OF MINIMAL INSTALL--
-ttf-meslo-nerd
-ttf-jetbrains-mono-nerd
 autojump
 dashbinsh
 envycontrol
@@ -10,3 +8,7 @@ dragon-drop
 python-fuzzysearch
 libinput-gestures
 python-bs4
+# Fonts
+ttf-meslo-nerd
+ttf-jetbrains-mono-nerd
+otf-sora
